@@ -34,6 +34,9 @@ for gen in range(population_size):
     for _ in range(population_size):
         parent1, parent2 = random.choices(top_15, k=2)
         child = crossover(parent1,parent2)
-
+        if random.random() < mutation_rate:
+            child = mutate(child)
         new_population.append(child)
     population = new_population
+else:  
+    print(f"Best after 100 gens: '{population[0]}' (fitness={fitness(population[0])})")
