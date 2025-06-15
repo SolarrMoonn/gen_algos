@@ -3,8 +3,11 @@ target = "HELLOWORLD"
 mutation_rate = 0.1
 population_size = 150
 
+letters = [random.randint(65,90), random.randint(97, 122)]
+
 def create_population(size, length):
-    return [''.join(chr(random.randint(65,90)) for _ in range(length)) for _ in range(size)]
+    return [''.join(chr(random.choice
+    ([random.randint(65,90), random.randint(97, 122)])) for _ in range(length)) for _ in range(size)]
 
 def fitness(solution):
     return sum(s == t for s, t in zip(solution, target))
